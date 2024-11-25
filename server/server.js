@@ -14,22 +14,18 @@ app.use(cors({ origin: process.env.PL_FRONT }));
 app.use(express.json());
 app.use('/api', routes)
 
-const static_dir = path.resolve(path.join(__dirname, "../build"));
-console.log(chalk.bgGreen("BUILD SUCCESSFUL"));
+const static_dir = path.resolve(path.join(__dirname, '../build'));
+console.log(chalk.bgGreen('BUILD SUCCESSFUL'));
 
-app.use("/", express.static(static_dir));
-app.get("/*", (req, res, next) => {
-  if (req.url.startsWith("/api/")) {
+app.use('/', express.static(static_dir));
+app.get('/*', (req, res, next) => {
+  console.log(req.url)
+  if (req.url.startsWith('/api/')) {
+
     return next();
   }
-  res.sendFile(path.join(static_dir, "index.html"));
+  res.sendFile(path.join(static_dir, 'index.html'));
 });
-
-connectToSchema.execute(`SELECT * FROM pets LEFT JOIN mypets ON pets.id = mypets.id`, [], (err, res) => {
-  if (err) throw err;
-  if (res) console.log(res)
-    connectToSchema.destroy();
-})
 
 app.listen(port);
 
