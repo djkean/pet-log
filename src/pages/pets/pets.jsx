@@ -35,6 +35,17 @@ export function PetsPage() {
     <>
       <div>
         <b>PETS!</b>
+        {pets.length > 0 && pets.map((pet) => {
+          return (
+            <table>
+              <tr key={pet.id}>
+                <td>{pet.name}</td>
+                <td>{pet.kc}</td>
+                <td>{pet.source}</td>
+              </tr>
+            </table>
+          )
+        }) }
       </div>
     </>
   );
