@@ -19,9 +19,7 @@ console.log(chalk.bgGreen('BUILD SUCCESSFUL'));
 
 app.use('/', express.static(static_dir));
 app.get('/*', (req, res, next) => {
-  console.log(req.url)
   if (req.url.startsWith('/api/')) {
-
     return next();
   }
   res.sendFile(path.join(static_dir, 'index.html'));

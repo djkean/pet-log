@@ -6,9 +6,10 @@ export function PetsPage() {
   const getPetData = async () => {
     try {
       const petDbRes = await fetch('http://localhost:8000/api/pets', { 
-        headers: {'Content-Type': 'application/json'} 
-      }, 
-        { method: 'GET' });
+        headers: { 'Content-Type': 'application/json' } 
+      }, { 
+        method: 'GET' 
+      });
       if (petDbRes.status !== 200) {
         console.log('An error occurred');
         return
@@ -19,7 +20,7 @@ export function PetsPage() {
       return petDbResJson;
     }
     catch(err) {
-      console.log(err, "Something isn't right here...");
+      console.log(err, 'Something i\'snt right here...');
     }
   }
    
@@ -40,7 +41,7 @@ export function PetsPage() {
             <table>
               <tr key={pet.id}>
                 <td>{pet.name}</td>
-                <td>{pet.kc}</td>
+                <td> | </td>
                 <td>{pet.source}</td>
               </tr>
             </table>
