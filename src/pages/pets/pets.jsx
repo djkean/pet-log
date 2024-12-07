@@ -40,7 +40,10 @@ export function PetsPage() {
           return (
             <table>
               <tr key={pet.id}>
-                <td>{pet.name}</td>
+                <td>
+                  <img src={`../img-assets/pet-icons/${pet.id}.png`} alt='pet icon'></img>
+                </td>
+                <td className='pet-table-name'>{pet.name}</td>
                 <td> | </td>
                 <td>{pet.source}</td>
               </tr>

@@ -18,6 +18,11 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.pet-table-name {
+  color: '#76E7CD';
+  background-color: '#FFCC00'
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
