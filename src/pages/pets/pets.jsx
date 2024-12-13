@@ -36,20 +36,24 @@ export function PetsPage() {
     <>
       <div>
         <b>PETS!</b>
-        {pets.length > 0 && pets.map((pet) => {
-          return (
-            <table>
-              <tr key={pet.id}>
-                <td>
-                  <img src={`../img-assets/pet-icons/${pet.id}.png`} alt='pet icon'></img>
-                </td>
-                <td className='pet-table-name'>{pet.name}</td>
-                <td> | </td>
-                <td>{pet.source}</td>
-              </tr>
-            </table>
-          )
-        }) }
+        <table className='pet-table'>
+          {pets.length > 0 && pets.map((pet) => {
+            return (
+              <tbody>
+                <tr key={pet.id}>
+                  <td rowSpan={2}>
+                    <img src={`../img-assets/pet-icons/${pet.id}.png`} alt='pet icon'></img>
+                  </td>
+                  <td colSpan={2}>{pet.name}</td>
+                </tr>
+                <tr>
+                  {pet?.kc && <td>{pet.kc}</td> }
+                  {pet?.kc2 && <td>{pet.kc2}</td> }
+                </tr>
+              </tbody>
+            )
+          })}
+        </table>
       </div>
     </>
   );
